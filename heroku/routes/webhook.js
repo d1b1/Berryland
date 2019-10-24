@@ -68,13 +68,13 @@ module.exports = function(req, res) {
 
 	takeshape(query).then(result => {
 
-		console.log('results', result);
+		console.log(`\n${result}\n`);
 
 		var obj = result.data[body.data.queryName];
 		obj.objectID = obj._id
 
 		index.addObject(obj, () => {
-			console.log(`Indexed ${body.data.contentTypeName} id: ${body.data.contentId} `)
+			console.log(`Indexed ${body.data.contentTypeName} id: ${body.data.contentId}\n`)
 			res.status(200).send(`Handled a Webhook Request for ${body.data.contentTypeName} id: ${body.data.contentId}`)
 		})
 	})
