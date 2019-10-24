@@ -24,6 +24,30 @@ module.exports = function(req, res) {
 	var query = ` {
 		${body.data.queryName}(_id: "${body.data.contentId}") {
 			_id
+	    characteristics
+	    description
+	    growers {
+	      _id
+	      growerName
+	      location {
+	        city
+	        state
+	      }
+	      logo {
+	        _id
+	        caption
+	        credit
+	        description
+	        filename
+	        mimeType
+	        path
+	        sourceUrl
+	        title
+	        uploadStatus
+	      }
+	    }
+	    healthBenefits
+	    indigenousTo
 	    name
 	    photo {
 	      _id
@@ -38,9 +62,7 @@ module.exports = function(req, res) {
 	      uploadStatus
 	    }
 	    plantName
-	    repeater {
-	      growerName
-	    }
+	    scientificName
 		}
 	}`;
 
